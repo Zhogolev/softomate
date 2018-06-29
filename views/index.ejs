@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script type="text/javascript">
+        function get() {
+            let ip = $("#ip")[0].value;
+            $.get("/lookip?ip=" + ip, function(data, status){
+               $("#country")[0].value = data.country;
+            })
+        }
+
+    </script>
+</head>
+<body>
+
+
+<h1><%= title %></h1>
+<span>Result</span><br>
+<input type="text" name="country" id="country"></br></br>
+<form>
+    <span>Type id</span><br>
+    <input type="text" name="ip" id="ip"></br></br>
+    <button onclick="get()" type="button" id="sbtn">check</button>
+</form>
+</body>
+</html>
